@@ -1,11 +1,10 @@
 import { Hono } from 'hono'
 import { logger } from 'hono/logger'
-import { expensesRouter } from './routers/expense'
+import { expensesRouter } from './routers/expenses'
 const app = new Hono()
 
 app.use('*', logger())
 
-app.get('/', (c) => c.text('Hello, from Hono!'))
 app.route('/api/expenses', expensesRouter)
 
 export default app
